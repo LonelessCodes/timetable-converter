@@ -48,10 +48,9 @@ where one event can span multiple rows, into a JSON readable array of events.
 ## Usage
 
 ```sh
-deno run main --date Friday:2025-05-20 --date Saturday:2025-05-21 --file file.xlsx > events.json
+deno run main --date Friday:2025-05-20 --date Saturday:2025-05-21 --input file.xlsx [--output events.json]
 
     --date <sheet name>:<date> # Maps a date to a sheet name in the specified workfile. Multiple allowed. Not mentioned sheets will be ignored.
-    --file <file.xlsx> # Path to the spreadsheet file
-
-The script outputs the json to stdout.
+    --input <file.xlsx> # Path to the spreadsheet file
+    --output <event.json> # Path to the output json file. If not specified, outputs json to stdout.
 ```

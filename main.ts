@@ -5,24 +5,31 @@ import { parseArgs } from "@std/cli/parse-args";
 
 import { findMerge, timeCellToDate } from "./helpers.ts";
 
-const { help: hasHelp, file, date: dateInputs } = parseArgs(Deno.args, {
+const {
+  help: hasHelp,
+  input: inputFile,
+  output: outputFile,
+  date: dateInputs,
+} = parseArgs(Deno.args, {
   boolean: ["help"],
-  string: ["file", "date"],
+  string: ["input", "output", "date"],
   collect: ["date"],
 });
 if (hasHelp) {
   console.error(
-    "Usage: %s --date <sheet name>:<2025-09-06> --date <sheet name>:<2025-09-07> --file <file.xlsx>",
+    "Usage: %s --date <sheet name>:<2025-09-06> --date <sheet name>:<2025-09-07> --input <file.xlsx> --output <events.json>",
     import.meta.filename,
   );
-  console.error("Generated json outputted to stdout");
+  console.error(
+    "If --output is not specified, generated json will be sent to stdout",
+  );
   Deno.exit(0);
 }
-if (!file) {
+if (!inputFile) {
   throw new Error("No file.xlxs specified.");
 }
 
-const data = await Deno.readFile(file);
+const data = await Deno.readFile(inputFile);
 
 // Read the .xlsx file in "dense" mode, otherwise sheets don't have the "!data" property on them
 const workbook = xlsx.read(data, {
@@ -155,5 +162,9 @@ for (const [sheetName, startDate] of dates) {
   }
 }
 
-// Finally output to stdout
-console.log(JSON.stringify(events, null, 2));
+// Finally output
+if (outputFile) {
+  await Deno.writeTextFile(outputFile, JSON.stringify(events, null, 2));
+} else {
+  console.log(JSON.stringify(events, null, 2));
+}

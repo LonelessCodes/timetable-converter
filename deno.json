@@ -1,8 +1,8 @@
 {
   "tasks": {
-    "dev": "deno run --allow-import --allow-read --watch main.ts",
-    "main": "deno run --allow-import --allow-read main.ts",
-    "compile": "deno compile --allow-import --allow-read --target x86_64-unknown-linux-gnu --output ./out/timetable-converter main.ts && deno compile --allow-import --allow-read --target x86_64-pc-windows-msvc --output ./out/timetable-converter.exe main.ts"
+    "dev": "deno run --allow-import --allow-read --allow-write --watch main.ts",
+    "main": "deno run --allow-import --allow-read --allow-write main.ts",
+    "compile": "deno compile --allow-import --allow-read --allow-write --target x86_64-unknown-linux-gnu --output ./out/timetable-converter main.ts && deno compile --allow-import --allow-read --allow-write --target x86_64-pc-windows-msvc --output ./out/timetable-converter.exe main.ts"
   },
   "imports": {
     "@std/cli": "jsr:@std/cli@^1.0.21",
