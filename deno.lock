@@ -1,0 +1,32 @@
+{
+  "version": "5",
+  "specifiers": {
+    "jsr:@std/cli@*": "1.0.21",
+    "jsr:@std/cli@^1.0.21": "1.0.21",
+    "npm:moment@^2.30.1": "2.30.1"
+  },
+  "jsr": {
+    "@std/cli@1.0.21": {
+      "integrity": "cd25b050bdf6282e321854e3822bee624f07aca7636a3a76d95f77a3a919ca2a"
+    }
+  },
+  "npm": {
+    "moment@2.30.1": {
+      "integrity": "sha512-uEmtNhbDOrWPFS+hdjFCBfy9f2YoyzRpwcl+DqpC6taX21FzsTLQVbMV/W7PzNSX6x/bhC1zA3c2UQ5NzH6how=="
+    }
+  },
+  "redirects": {
+    "https://cdn.sheetjs.com/xlsx-0.20.3/package/types/index": "https://cdn.sheetjs.com/xlsx-0.20.3/package/types/"
+  },
+  "remote": {
+    "https://cdn.jsdelivr.net/npm/danfojs@1.2.0/dist/danfojs-browser/src/index.js": "9daed5f35bd6dcf7682c136fc42f5fd23d159e628205d9625c47863325360026",
+    "https://cdn.jsdelivr.net/npm/danfojs@1.2.0/lib/bundle.esm.js": "06dc76f3dcb719f611a349105f571361c4947c7554f1604450d63afec4b16c05",
+    "https://cdn.sheetjs.com/xlsx-0.20.3/package/xlsx.mjs": "1a0fb062ee9781b13f6687371b202aaefc53b6ce55b530c027e01f9c087b77db"
+  },
+  "workspace": {
+    "dependencies": [
+      "jsr:@std/cli@^1.0.21",
+      "npm:moment@^2.30.1"
+    ]
+  }
+}
