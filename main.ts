@@ -92,14 +92,14 @@ for (const [sheetName, startDate] of dates) {
       if (!eventCell || !eventCell.w) {
         continue;
       }
-      const eventName = eventCell.w.replace(/\s+/g, " ");
+      const eventName = eventCell.w.replace(/\s+/g, " ").trim();
 
       // Lookup the name of the room
       const roomCell = data[roomRow][colIndex];
       if (!roomCell || !roomCell.w) {
         continue;
       }
-      const roomName = roomCell.w.replace(/\s+/g, " ");
+      const roomName = roomCell.w.replace(/\s+/g, " ").trim();
 
       // Lookup whether this cell spans multiple cols/rows
       const cellMerge: xlsx.Range = findMerge(merges, colIndex, rowIndex) ??
