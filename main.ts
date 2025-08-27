@@ -142,8 +142,8 @@ for (const [sheetName, startDate] of dates) {
 
       const event: TimetableEvent = {
         eventId: eventIdInc++,
-        begin: startTime.toISOString(true),
-        end: endTime.toISOString(true),
+        begin: startTime.format(),
+        end: endTime.format(),
         eventname: eventName,
         room: roomName,
       };
