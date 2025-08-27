@@ -34,6 +34,7 @@ This is a convenience script to convert a spreadsheet with an event timetable fo
         <tr>
             <td>13:15</td>
             <td></td>
+            <td></td>
         </tr>
         <tr>
             <td>13:30</td>
