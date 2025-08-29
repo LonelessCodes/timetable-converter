@@ -11,15 +11,21 @@ export function timeCellToDate(
     return null;
   }
 
-  const timeToday = moment(timeRaw, "HH:mm");
+  const match = timeRaw.match(/(\d+)\:(\d+)/);
+  if (!match) {
+    return null;
+  }
 
-  const timeSinceStartToday = moment.duration({
-    from: timeToday.clone().startOf("day"),
-    to: timeToday,
+  const [_, hourStr, minuteStr] = match;
+  const [hour, minute] = [parseInt(hourStr), parseInt(minuteStr)];
+
+  // Prefer setting instead of adding hours and minutes. Remember daylight savings dates!
+  return startDate.clone().set({
+    hour,
+    minute,
   });
-
-  return startDate.clone().add(timeSinceStartToday);
 }
+
 export function findMerge(
   merges: xlsx.Range[],
   colIndex: number,
